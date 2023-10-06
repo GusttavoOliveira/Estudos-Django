@@ -33,6 +33,7 @@ def vote(request, question_id):
     # Neste caso, request.POST['choice'] retorna o ID da opção selecionada, como uma string. 
     # Os valores de request.POST são sempre strings.
     try:
+        # Vai na request, acessa a o valor do <input> cujo atributo name é 'choice'
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Reexibe o formulario de voto da pergunta
