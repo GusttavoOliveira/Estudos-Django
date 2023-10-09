@@ -8,6 +8,19 @@ from django.views import generic
 from .models import Question, Choice
 ""
 # Create your views here.
+
+"""
+Nós estamos usando duas views genéricas aqui: ListView e DetailView. Respectivamente, essas duas views abstraem o conceito 
+de exibir uma lista de objetos e exibir uma página de detalhe para um tipo particular de objeto.
+
+Cada “view” genérica precisa saber qual é o modelo que ela vai agir. Isto é fornecido usando o atributo model.
+A view genérica DetailView espera o valor de chave primaria capturado da URL chamada "pk", então mudamos question_id para pk para as views genérica.
+"""
+
+"""
+Nas partes anteriores deste tutorial, os templates tem sido fornecidos com um contexto que contém as variáveis question e latest_question_list. Para a DetailView a variavel question é fornecida automaticamente – já que estamos usando um modelo Django (Question), Django é capaz de determinar um nome apropriado para a variável de contexto. Contudo, para ListView, a variável de contexto gerada automaticamente é question_list. Para sobrescrever nós fornecemos o atributo context_object_name, especificando que queremos usar latest_question_list no lugar.
+"""
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
