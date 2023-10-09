@@ -15,5 +15,5 @@ Após fazer o download do repositório, navegue até o diretório estudos e use 
 ```
 Após a instalação, já é possível rodar o servidor de modo local para poder acessar a todas as rotas previstas nos arquivos urls.py .
 ```
-...> python manager.py runserver 
+...> python manage.py runserver 
 ```
